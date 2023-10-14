@@ -3,5 +3,38 @@
     "jquery": "^3.7.1",
     "jsdom": "^22.1.0",
     "minimist": "^1.2.8"
-  }
+  },
+  "name": "inlinecssaway",
+  "description": "Command line tool that takes an input html file, examines elements with inline style attributes, replaces inline styles with css classes, and outputs updated html as well as a generated style sheet for styles that were found.",
+  "version": "0.1.0",
+  "main": "index.js",
+  "bin": {
+    "inlinecssaway": "bin/InlineCssAway.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leighzer/InlineCssAway.git"
+  },
+  "keywords": [
+    "remove",
+    "inline",
+    "css",
+    "html",
+    "external",
+    "style",
+    "sheet"
+  ],
+  "author": "Leighton Covington",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Leighzer/InlineCssAway/issues"
+  },
+  "homepage": "https://github.com/Leighzer/InlineCssAway#readme"
 }

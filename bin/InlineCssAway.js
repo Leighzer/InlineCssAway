@@ -80,13 +80,13 @@ Object.keys(styleAttributeGroups).forEach(styleAttributeString => {
 
 console.log('Modified HTML:');
 const node = window.document.doctype;
-const html = "<!DOCTYPE "
+const docTypeHtml = "<!DOCTYPE "
     + node.name
     + (node.publicId ? ' PUBLIC "' + node.publicId + '"' : '')
     + (!node.publicId && node.systemId ? ' SYSTEM' : '')
     + (node.systemId ? ' "' + node.systemId + '"' : '')
     + '>';
-console.log(html);
+console.log(docTypeHtml);
 console.log($("html").prop('outerHTML'));
 console.log('\nGenerated CSS classes:');
 Object.keys(styleAttrbiuteStringToCssClass).forEach(styleAttributeString => {
