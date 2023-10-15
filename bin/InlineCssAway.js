@@ -21,7 +21,7 @@ const args = minimist(process.argv.slice(2), {
 
 const inputHtmlFileName = args.htmlinput;
 const outputHtmlFileName = args.htmloutput;
-const outputCssFileName = args.htmloutput;
+const outputCssFileName = args.cssoutput;
 const interactiveMode = false; // args.it - perhaps down the road we iterate over found style groups, and let user name them on the spot
 
 // arg validations
@@ -78,7 +78,9 @@ Object.keys(styleAttributeGroups).forEach(styleAttributeString => {
     styleAttrbiuteStringToCssClass[styleAttributeString] = className;
 });
 
-console.log('Modified HTML:');
+// generate output
+let outputHtml = "";
+let outputCss = "";
 const node = window.document.doctype;
 const docTypeHtml = "<!DOCTYPE "
     + node.name
@@ -86,12 +88,20 @@ const docTypeHtml = "<!DOCTYPE "
     + (!node.publicId && node.systemId ? ' SYSTEM' : '')
     + (node.systemId ? ' "' + node.systemId + '"' : '')
     + '>';
-console.log(docTypeHtml);
-console.log($("html").prop('outerHTML'));
-console.log('\nGenerated CSS classes:');
+outputHtml += docTypeHtml + "\n";
+outputHtml += $("html").prop('outerHTML') + "\n";
+
 Object.keys(styleAttrbiuteStringToCssClass).forEach(styleAttributeString => {
-    console.log(`.${styleAttrbiuteStringToCssClass[styleAttributeString]} { ${styleAttributeString} }`);
+    outputCss += `.${styleAttrbiuteStringToCssClass[styleAttributeString]} { ${styleAttributeString} }\n`;
 });
+
+// write output
+fs.writeFileSync(outputHtmlFileName, outputHtml);
+fs.writeFileSync(outputCssFileName, outputCss);
+
+// done
+console.log(outputHtmlFileName);
+console.log(outputCssFileName);
 
 // helper functions
 function normalizeStyle(style) {
