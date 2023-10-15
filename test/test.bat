@@ -1,1 +1,1 @@
-node ../bin/InlineCssAway.js -i test.html
+node ./index.js -i test.html

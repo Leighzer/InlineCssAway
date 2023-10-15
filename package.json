@@ -8,9 +8,7 @@
   "description": "Command line tool that takes an input html file, examines elements with inline style attributes, replaces inline styles with css classes, and outputs updated html as well as a generated style sheet for styles that were found.",
   "version": "0.1.0",
   "main": "index.js",
-  "bin": {
-    "inlinecssaway": "bin/InlineCssAway.js"
-  },
+  "bin": "./index.js",
   "directories": {
     "test": "test"
   },
